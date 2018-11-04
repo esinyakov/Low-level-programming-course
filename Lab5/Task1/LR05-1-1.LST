@@ -1,0 +1,67 @@
+Microsoft (R) Macro Assembler Version 5.10                  10/11/18 15:56:4
+                                                             Page     1-1
+
+
+       1				EXTRN output_X: near
+       2				
+       3 0000				STK SEGMENT PARA STACK 'STACK'
+       4 0000  0064[				db 100 dup(0)
+       5	   00			
+       6			 ]	
+       7				
+       8 0064				STK ENDS
+       9				
+      10 0000				DSEG SEGMENT PARA PUBLIC 'DATA'
+      11 0000  52				X db 'R'
+      12 0001				DSEG ENDS
+      13				
+      14 0000				CSEG SEGMENT PARA PUBLIC 'CODE'
+      15					assume CS:CSEG, DS:DSEG, SS:STK
+      16 0000				main:
+      17 0000  B8 ---- R			mov ax, DSEG
+      18 0003  8E D8				mov ds, ax
+      19				
+      20 0005  E8 0000 E			call output_X	
+      21				
+      22 0008  B8 4C00				mov ax, 4c00h
+      23 000B  CD 21				int 21h
+      24 000D				CSEG ENDS
+      25				
+      26				PUBLIC X
+      27				
+      28				END main
+Microsoft (R) Macro Assembler Version 5.10                  10/11/18 15:56:4
+                                                             Symbols-1
+
+
+Segments and Groups:
+
+                N a m e         	Length	 Align	Combine Class
+
+CSEG . . . . . . . . . . . . . .  	000D	PARA	PUBLIC	'CODE'
+DSEG . . . . . . . . . . . . . .  	0001	PARA	PUBLIC	'DATA'
+STK  . . . . . . . . . . . . . .  	0064	PARA	STACK	'STACK'
+
+Symbols:            
+
+                N a m e         	Type	 Value	 Attr
+
+MAIN . . . . . . . . . . . . . .  	L NEAR	0000	CSEG
+
+OUTPUT_X . . . . . . . . . . . .  	L NEAR	0000		External
+
+X  . . . . . . . . . . . . . . .  	L BYTE	0000	DSEG	Global
+
+@CPU . . . . . . . . . . . . . .  	TEXT  0101h		
+@FILENAME  . . . . . . . . . . .  	TEXT  lr05_1_1		
+@VERSION . . . . . . . . . . . .  	TEXT  510		
+
+
+     25 Source  Lines
+     25 Total   Lines
+     18 Symbols
+
+  46564 + 447400 Bytes symbol space free
+
+      0 Warning Errors
+      0 Severe  Errors
