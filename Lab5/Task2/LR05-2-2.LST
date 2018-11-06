@@ -1,0 +1,57 @@
+Microsoft (R) Macro Assembler Version 5.10                  10/11/18 16:26:4
+                                                             Page     1-1
+
+
+       1 0000				SD1 SEGMENT para common 'DATA'
+       2 0000					C1 LABEL byte
+       3 0001					ORG 1h
+       4 0001					C2 LABEL byte
+       5 0001				SD1 ENDS
+       6				
+       7 0000				CSEG SEGMENT para 'CODE'
+       8					ASSUME CS:CSEG, DS:SD1
+       9 0000				main:
+      10 0000  B8 ---- R			mov ax, SD1
+      11 0003  8E D8				mov ds, ax
+      12 0005  B4 02				mov ah, 2
+      13 0007  8A 16 0000 R			mov dl, C1
+      14 000B  CD 21				int 21h
+      15 000D  8A 16 0001 R			mov dl, C2
+      16 0011  CD 21				int 21h
+      17 0013  B8 4C00				mov ax, 4c00h
+      18 0016  CD 21				int 21h
+      19 0018				CSEG ENDS
+      20				END main
+Microsoft (R) Macro Assembler Version 5.10                  10/11/18 16:26:4
+                                                             Symbols-1
+
+
+Segments and Groups:
+
+                N a m e         	Length	 Align	Combine Class
+
+CSEG . . . . . . . . . . . . . .  	0018	PARA	NONE	'CODE'
+SD1  . . . . . . . . . . . . . .  	0001	PARA	COMMON	'DATA'
+
+Symbols:            
+
+                N a m e         	Type	 Value	 Attr
+
+C1 . . . . . . . . . . . . . . .  	L BYTE	0000	SD1
+C2 . . . . . . . . . . . . . . .  	L BYTE	0001	SD1
+
+MAIN . . . . . . . . . . . . . .  	L NEAR	0000	CSEG
+
+@CPU . . . . . . . . . . . . . .  	TEXT  0101h		
+@FILENAME  . . . . . . . . . . .  	TEXT  lr05_2_2		
+@VERSION . . . . . . . . . . . .  	TEXT  510		
+
+
+     20 Source  Lines
+     20 Total   Lines
+     16 Symbols
+
+  46562 + 447402 Bytes symbol space free
+
+      0 Warning Errors
+      0 Severe  Errors
