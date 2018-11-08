@@ -1,0 +1,9 @@
+LINK : warning L4021: no stack segment
+
+ Start  Stop   Length Name                   Class
+ 00000H 0FFFCH 0FFFDH SD1                    DATA
+ 10000H 1FFFCH 0FFFDH SD2                    DATA
+ 20000H 2FFFCH 0FFFDH SD3                    DATA
+ 30000H 30035H 00036H CSEG                   CODE
+
+Program entry point at 3000:000D

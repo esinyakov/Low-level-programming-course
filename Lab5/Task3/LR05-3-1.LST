@@ -1,0 +1,96 @@
+Microsoft (R) Macro Assembler Version 5.10                  10/20/18 12:14:4
+                                                             Page     1-1
+
+
+       1 0000				SD1 SEGMENT para public 'DATA'
+       2 0000  59				S1 db 'Y'
+       3 0001  FFFC[				db 65532 dup (0)
+       4	   00			
+       5			 ]	
+       6				
+       7 FFFD				SD1 ENDS
+       8				
+       9 0000				SD2 SEGMENT para public 'DATA'
+      10 0000  45				S2 db 'E'
+      11 0001  FFFC[				db 65532 dup (0)
+      12	   00			
+      13			 ]	
+      14				
+      15 FFFD				SD2 ENDS
+      16				
+      17 0000				SD3 SEGMENT para public 'DATA'
+      18 0000  53				S3 db 'S'
+      19 0001  FFFC[				db 65532 dup (0)
+      20	   00			
+      21			 ]	
+      22				
+      23 FFFD				SD3 ENDS
+      24				
+      25 0000				CSEG SEGMENT para public 'CODE'
+      26					assume CS:CSEG, DS:SD1
+      27 0000				output:
+      28 0000  B4 02				mov ah, 2
+      29 0002  CD 21				int 21h
+      30 0004  B2 0D				mov dl, 13
+      31 0006  CD 21				int 21h
+      32 0008  B2 0A				mov dl, 10
+      33 000A  CD 21				int 21h
+      34 000C  C3				ret
+      35 000D				main:
+      36 000D  B8 ---- R			mov ax, SD1
+      37 0010  8E D8				mov ds, ax
+      38 0012  8A 16 0000 R			mov dl, S1
+      39 0016  E8 0000 R			call output
+      40				assume DS:SD2
+      41 0019  B8 ---- R			mov ax, SD2
+      42 001C  8E D8				mov ds, ax
+      43 001E  8A 16 0000 R			mov dl, S2
+      44 0022  E8 0000 R			call output
+      45				assume DS:SD3
+      46 0025  B8 ---- R			mov ax, SD3
+      47 0028  8E D8				mov ds, ax
+      48 002A  8A 16 0000 R			mov dl, S3
+      49 002E  E8 0000 R			call output
+      50					
+      51 0031  B8 4C00				mov ax, 4c00h
+      52 0034  CD 21				int 21h
+      53 0036				CSEG ENDS
+      54				END main
+Microsoft (R) Macro Assembler Version 5.10                  10/20/18 12:14:4
+                                                             Symbols-1
+
+
+Segments and Groups:
+
+                N a m e         	Length	 Align	Combine Class
+
+CSEG . . . . . . . . . . . . . .  	0036	PARA	PUBLIC	'CODE'
+SD1  . . . . . . . . . . . . . .  	FFFD	PARA	PUBLIC	'DATA'
+SD2  . . . . . . . . . . . . . .  	FFFD	PARA	PUBLIC	'DATA'
+SD3  . . . . . . . . . . . . . .  	FFFD	PARA	PUBLIC	'DATA'
+
+Symbols:            
+
+                N a m e         	Type	 Value	 Attr
+
+MAIN . . . . . . . . . . . . . .  	L NEAR	000D	CSEG
+
+OUTPUT . . . . . . . . . . . . .  	L NEAR	0000	CSEG
+
+S1 . . . . . . . . . . . . . . .  	L BYTE	0000	SD1
+S2 . . . . . . . . . . . . . . .  	L BYTE	0000	SD2
+S3 . . . . . . . . . . . . . . .  	L BYTE	0000	SD3
+
+@CPU . . . . . . . . . . . . . .  	TEXT  0101h		
+@FILENAME  . . . . . . . . . . .  	TEXT  lr05_3_1		
+@VERSION . . . . . . . . . . . .  	TEXT  510		
+
+
+     45 Source  Lines
+     45 Total   Lines
+     20 Symbols
+
+  46610 + 447418 Bytes symbol space free
+
+      0 Warning Errors
+      0 Severe  Errors
