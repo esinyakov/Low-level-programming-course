@@ -1,0 +1,63 @@
+Microsoft (R) Macro Assembler Version 5.10                  10/11/18 14:27:0
+                                                             Page     1-1
+
+
+       1				PUBLIC X
+       2				EXTRN exit: far
+       3 0000				STK segment STACK 'STACK'
+       4				
+       5 0000  0064[				db 100 dup('*')
+       6	   2A			
+       7			 ]	
+       8				
+       9 0064				STK ENDS
+      10				
+      11 0000				SD1 segment para public 'DATA'
+      12 0000  58				X db 'X'
+      13 0001				SD1 ENDS
+      14				
+      15 0000				SC1 segment para public 'CODE'
+      16					assume DS:SD1, CS:SC1
+      17 0000				main:
+      18 0000  B8 ---- R			mov ax,SD1
+      19 0003  8E D8				mov ds,ax
+      20				
+      21 0005  EA 0000 ---- E			jmp exit
+      22				
+      23 000A				SC1 ENDS
+      24				END main
+Microsoft (R) Macro Assembler Version 5.10                  10/11/18 14:27:0
+                                                             Symbols-1
+
+
+Segments and Groups:
+
+                N a m e         	Length	 Align	Combine Class
+
+SC1  . . . . . . . . . . . . . .  	000A	PARA	PUBLIC	'CODE'
+SD1  . . . . . . . . . . . . . .  	0001	PARA	PUBLIC	'DATA'
+STK  . . . . . . . . . . . . . .  	0064	PARA	STACK	'STACK'
+
+Symbols:            
+
+                N a m e         	Type	 Value	 Attr
+
+EXIT . . . . . . . . . . . . . .  	L FAR 	0000		External
+
+MAIN . . . . . . . . . . . . . .  	L NEAR	0000	SC1
+
+X  . . . . . . . . . . . . . . .  	L BYTE	0000	SD1	Global
+
+@CPU . . . . . . . . . . . . . .  	TEXT  0101h		
+@FILENAME  . . . . . . . . . . .  	TEXT  lr05_4_1		
+@VERSION . . . . . . . . . . . .  	TEXT  510		
+
+
+     21 Source  Lines
+     21 Total   Lines
+     18 Symbols
+
+  46562 + 447402 Bytes symbol space free
+
+      0 Warning Errors
+      0 Severe  Errors
