@@ -1,0 +1,10 @@
+T>>OUT.txt
+BP M1 "R;W;"
+BP M2 "R;W;E"
+BP M3 "R;W;E"
+BP M4 "R;W;E"
+BP M5 "R;W;E"
+BP M6 "R;W;E"
+WB K
+G
+
